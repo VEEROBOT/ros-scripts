@@ -10,6 +10,6 @@ sudo apt-get update
 sudo apt-get upgrade
 wget https://raw.githubusercontent.com/VEEROBOT/ros-scripts/main/ROS2Install/install_ros2.sh
 chmod 755 ./install_ros2.sh
-bash ./install_ros2.sh
+sudo bash ./install_ros2.sh
 ```
 ### The script will take upto 15 minutes to install. 
