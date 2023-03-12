@@ -12,3 +12,4 @@ wget https://raw.githubusercontent.com/VEEROBOT/ros-scripts/main/ROS2Install/ins
 chmod 755 ./install_ros2.sh
 bash ./install_ros2.sh
 ```
+### The script will take upto 15 minutes to install. 
