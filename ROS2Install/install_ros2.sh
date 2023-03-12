@@ -60,7 +60,7 @@ elif [ $ARCH == "aarch64" ]
 fi
 
 sudo apt update && sudo apt install -y libpython3-dev \
-  libbullet-dev python3-pip python3-pytest-cov ros-dev-tools
+  libbullet-dev python3-pip python3-pytest-cov ros-dev-tools -y
   
 # install some pip packages needed for testing
 python3 -m pip install -U argcomplete flake8-blind-except \
@@ -68,14 +68,14 @@ python3 -m pip install -U argcomplete flake8-blind-except \
   flake8-deprecated flake8-docstrings flake8-import-order \
   flake8-quotes pytest-repeat pytest-rerunfailures pytest
 # install Fast-RTPS dependencies
-sudo apt install --no-install-recommends -y libasio-dev libtinyxml2-dev
+sudo apt install --no-install-recommends libasio-dev libtinyxml2-dev -y
 # install Cyclone DDS dependencies
-sudo apt install --no-install-recommends -y libcunit1-dev  
+sudo apt install --no-install-recommends libcunit1-dev -y
 # Install python3 libraries
-pip3 install -U argcomplete pytest-rerunfailures
+pip3 install -U argcomplete pytest-rerunfailures -y
 
 # Install colcon
-sudo apt install python3-colcon-common-extensions python3-rosdep
+sudo apt install python3-colcon-common-extensions python3-rosdep -y
 # Remove conflicting em package
 pip3 uninstall em
 
