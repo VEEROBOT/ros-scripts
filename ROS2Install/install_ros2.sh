@@ -4,7 +4,7 @@ set -e
 
 sudo apt install software-properties-common
 sudo add-apt-repository universe
-sudo apt update && sudo apt install -y curl gnupg2 lsb-release
+sudo apt update && sudo apt install curl gnupg2 lsb-release -y
 
 ARCH=$(uname -i)
 RELEASE=$(lsb_release -c -s)
@@ -59,7 +59,7 @@ elif [ $ARCH == "aarch64" ]
         sudo apt install -y ros-$ROSDISTRO-ros-base
 fi
 
-sudo apt update && sudo apt install -y libpython3-dev \
+sudo apt update && sudo apt install libpython3-dev \
   libbullet-dev python3-pip python3-pytest-cov ros-dev-tools -y
   
 # install some pip packages needed for testing
@@ -72,7 +72,7 @@ sudo apt install --no-install-recommends libasio-dev libtinyxml2-dev -y
 # install Cyclone DDS dependencies
 sudo apt install --no-install-recommends libcunit1-dev -y
 # Install python3 libraries
-pip3 install -U argcomplete pytest-rerunfailures -y
+pip3 install -U argcomplete pytest-rerunfailures
 
 # Install colcon
 sudo apt install python3-colcon-common-extensions python3-rosdep -y
