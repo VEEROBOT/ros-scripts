@@ -47,8 +47,8 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 echo "Installing ROS $ROSDISTRO on $ARCH architecture"
 sudo apt update
 
-sudo apt install python3-colcon-core
-sudo apt install python3-colcon-common-extensions
+sudo apt install python3-colcon-core -y
+sudo apt install python3-colcon-common-extensions -y
 
 if [ $ARCH == "x86_64" ]
     then
