@@ -93,7 +93,7 @@ echo ""
 echo -n "Do you want to save this on your .bashrc (y/n)? "
 read answer
 
-if [ "$answer" != "${answer#[Yy]}" ] ;
+if [ "$answer" != "${answer#[Nn]}" ] ;
     then
         echo "source /opt/ros/$ROSDISTRO/setup.bash" >> $HOME/.bashrc
 fi
