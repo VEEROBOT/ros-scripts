@@ -9,10 +9,18 @@ sudo apt update && sudo apt install curl gnupg2 lsb-release -y
 ARCH=$(uname -i)
 RELEASE=$(lsb_release -c -s)
 
+echo ""
+echo "[Setting up Locales]"
+echo ""
+
 sudo apt update && sudo apt install locales
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+echo ""
+echo "[Selecting appropriate ROS2 Version]"
+echo ""
 
 if [ $RELEASE == "bionic" ]
     then
@@ -32,7 +40,7 @@ fi
 
 if [ $ARCH != "x86_64" ] && [ $ARCH != "aarch64" ]
     then
-        echo "$ARCH architecture not supported. Exiting now"
+        echo "[$ARCH architecture not supported. Exiting now]"
         exit
 fi
 
@@ -47,6 +55,10 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 echo "Installing ROS $ROSDISTRO on $ARCH architecture"
 sudo apt update
 
+echo ""
+echo "[Installing Python 3 and Colcon]"
+echo ""
+
 sudo apt install python3-colcon-core -y
 sudo apt install python3-colcon-common-extensions -y
 
@@ -58,6 +70,10 @@ elif [ $ARCH == "aarch64" ]
     then
         sudo apt install -y ros-$ROSDISTRO-ros-base
 fi
+
+echo ""
+echo "[Installing Required Packages]"
+echo ""
 
 sudo apt update && sudo apt install libpython3-dev \
   libbullet-dev python3-pip python3-pytest-cov ros-dev-tools -y
@@ -74,28 +90,31 @@ sudo apt install --no-install-recommends libcunit1-dev -y
 # Install python3 libraries
 pip3 install -U argcomplete pytest-rerunfailures
 
-# Install colcon
+# Install colcon extensions
 sudo apt install python3-colcon-common-extensions python3-rosdep -y
 # Remove conflicting em package
 pip3 uninstall em
+
+echo ""
+echo "[Init and Update rosdep]"
+echo ""
 
 sudo rosdep init
 rosdep update
 
 echo ""
-echo "ROS $ROSDISTRO installation complete!"
+echo "[ROS $ROSDISTRO installation complete!]"
 echo ""
 
-echo "Set up your environment by sourcing the following file."
+echo ""
+echo "[Setting up environment by sourcing the following file]"
 echo "source /opt/ros/$ROSDISTRO/setup.bash"
 echo ""
 
-echo -n "Do you want to save this on your .bashrc (y/n)? "
-read answer
+echo "source /opt/ros/$ROSDISTRO/setup.bash" >> $HOME/.bashrc
 
-if [ "$answer" != "${answer#[Nn]}" ] ;
-    then
-        echo "source /opt/ros/$ROSDISTRO/setup.bash" >> $HOME/.bashrc
-fi
+echo ""
+echo "[Environment is Setup. Restart terminal and type - rosversion -d]"
+echo ""
 
-echo "Installation Complete!"
+echo "Installation of $ROSDISTRO Complete!"
