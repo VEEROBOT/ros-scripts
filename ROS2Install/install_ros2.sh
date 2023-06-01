@@ -114,7 +114,7 @@ echo ""
 echo "source /opt/ros/$ROSDISTRO/setup.bash" >> $HOME/.bashrc
 
 echo ""
-echo "[Environment is Setup. Restart terminal and type - rosversion -d]"
+echo "[Environment is Setup. Restart terminal and you are ready to go!]"
 echo ""
 
 echo "Installation of $ROSDISTRO Complete!"
