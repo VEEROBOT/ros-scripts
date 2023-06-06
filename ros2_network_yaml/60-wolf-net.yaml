@@ -1,0 +1,17 @@
+# Internet and Wifi
+network:
+  ethernets:
+    eth0:
+      dhcp4: true
+      optional: true
+  version: 2
+  wifis:
+    wlan0:
+      dhcp4: no
+      addresses: [192.168.1.137/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [192.168.1.1,8.8.8.8,192.168.1.1]
+      access-points:
+        "wolf_24G":
+          password: "12345678"
