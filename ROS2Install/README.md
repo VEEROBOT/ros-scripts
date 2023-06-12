@@ -13,3 +13,12 @@ chmod 755 ./install_ros2.sh
 sudo bash ./install_ros2.sh
 ```
 ### The script will take upto 15 minutes to install. 
+
+### Errors
+If for some reason, wget is not able to connect, add raw.githubusercontent.com ip to hosts file
+
+```
+sudo nano /etc/hosts
+185.199.108.133 raw.githubusercontent.com
+```
+Save, Close and Try again. In some cases, you may have to restart the system.
