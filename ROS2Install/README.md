@@ -21,4 +21,5 @@ If for some reason, wget is not able to connect, add raw.githubusercontent.com i
 sudo nano /etc/hosts
 185.199.108.133 raw.githubusercontent.com
 ```
-Save, Close and Try again. In some cases, you may have to restart the system.
+Save, Close and Try again. In some cases, you may have to restart the system. You can also set DNS 8.8.8.8 on your network to resolve this
+
