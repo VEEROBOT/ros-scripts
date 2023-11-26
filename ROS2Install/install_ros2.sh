@@ -64,7 +64,7 @@ sudo apt install python3-colcon-common-extensions -y
 
 if [ $ARCH == "x86_64" ]
     then
-        sudo apt install -y ros-$ROSDISTRO-desktop
+        sudo apt install -y ros-$ROSDISTRO-desktop-full
 
 elif [ $ARCH == "aarch64" ]
     then
