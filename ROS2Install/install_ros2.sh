@@ -68,7 +68,7 @@ if [ $ARCH == "x86_64" ]
 
 elif [ $ARCH == "aarch64" ]
     then
-        sudo apt install -y ros-$ROSDISTRO-ros-base
+        sudo apt install -y ros-$ROSDISTRO-desktop
 fi
 
 echo ""
