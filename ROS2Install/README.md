@@ -14,6 +14,15 @@ sudo bash ./install_ros2.sh
 ```
 ### The script will take upto 15 minutes to install. 
 
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+wget https://raw.githubusercontent.com/VEEROBOT/ros-scripts/main/ROS2Install/install_ros2_v2.sh
+chmod +x install_ros2_v2.sh
+./install_ros2_v2.sh
+```
+
 ### Errors
 If for some reason, wget is not able to connect, add raw.githubusercontent.com ip to hosts file
 
