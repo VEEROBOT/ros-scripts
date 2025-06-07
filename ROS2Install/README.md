@@ -24,6 +24,42 @@ chmod +x install_ros2_v2.sh
 ./install_ros2_v2.sh
 ```
 
+### PiP3 Install for dev-tools
+```
+# Setup environment sourcing
+echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+# rosdep setup
+sudo rosdep init || echo "rosdep already initialized"
+rosdep update
+
+# Add pip user bin to path
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# Install Python dev tools with break-system-packages
+pip3 install --break-system-packages -U argcomplete flake8-blind-except \
+  flake8-builtins flake8-class-newline flake8-comprehensions \
+  flake8-deprecated flake8-docstrings flake8-import-order \
+  flake8-quotes pytest-repeat pytest-rerunfailures pytest
+
+# Fix uninstall for em
+pip3 uninstall --break-system-packages -y em || true
+
+# Create and test workspace
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws
+source /opt/ros/jazzy/setup.bash
+colcon build
+echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+```
+
+For ROS dep update
+```
+rosdep update
+```
+
 ### Errors
 If for some reason, wget is not able to connect, add raw.githubusercontent.com ip to hosts file
 
