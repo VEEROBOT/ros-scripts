@@ -14,6 +14,7 @@ sudo bash ./install_ros2.sh
 ```
 ### The script will take upto 15 minutes to install. 
 
+### The below script includes the latest version of ROS on ubuntu 24.02
 
 ```
 sudo apt-get update
